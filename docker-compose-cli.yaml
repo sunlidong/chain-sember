@@ -86,10 +86,6 @@ services:
         - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
     depends_on:
       - orderer1.cpu.com
-      - orderer2.cpu.com
-      - orderer3.cpu.com
-      - orderer4.cpu.com
-      - orderer5.cpu.com
       - peer0.org1.huawei.com
       - peer1.org1.huawei.com
       - peer0.org2.xiaomi.com
