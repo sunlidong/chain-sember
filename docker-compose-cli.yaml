@@ -73,19 +73,19 @@ services:
     networks:
       - ydqy
 
-  peer0.org1.xiaomi.com:
-    container_name: peer0.org1.xiaomi.com
+  peer0.org2.xiaomi.com:
+    container_name: peer0.org2.xiaomi.com
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer0.org1.xiaomi.com
+      service: peer0.org2.xiaomi.com
     networks:
       - ydqy
 
-  peer1.org1.xiaomi.com:
-    container_name: peer1.org1.xiaomi.com
+  peer1.org2.xiaomi.com:
+    container_name: peer1.org2.xiaomi.com
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer1.org1.xiaomi.com
+      service: peer1.org2.xiaomi.com
     networks:
       - ydqy
 
@@ -123,7 +123,7 @@ services:
       - orderer5.cpu.com
       - peer0.org1.huawei.com
       - peer1.org1.huawei.com
-      - peer0.org1.xiaomi.com
-      - peer1.org1.xiaomi.com
+      - peer0.org2.xiaomi.com
+      - peer1.org2.xiaomi.com
     networks:
       - ydqy
