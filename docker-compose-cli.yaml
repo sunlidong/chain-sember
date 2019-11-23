@@ -6,7 +6,7 @@
 version: '2'
 
 volumes:
-  orderer1.cpu.com:
+  orderer.cpu.com:
   peer0.org1.huawei.com:
   peer1.org1.huawei.com:
   peer0.org2.xiaomi.com:
@@ -17,11 +17,11 @@ networks:
 
 services:
 
-  orderer1.cpu.com:
+  orderer.cpu.com:
     extends:
       file:   base/docker-compose-base.yaml
-      service: orderer1.cpu.com
-    container_name: orderer1.cpu.com
+      service: orderer.cpu.com
+    container_name: orderer.cpu.com
     networks:
       - ydqy
 
@@ -85,7 +85,7 @@ services:
         - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
         - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
     depends_on:
-      - orderer1.cpu.com
+      - orderer.cpu.com
       - peer0.org1.huawei.com
       - peer1.org1.huawei.com
       - peer0.org2.xiaomi.com
