@@ -1,0 +1,129 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+volumes:
+  orderer1.cpu.com:
+  orderer2.cpu.com:
+  orderer3.cpu.com:
+  orderer4.cpu.com:
+  orderer5.cpu.com:
+  peer0.org1.huawei.com:
+  peer1.org1.huawei.com:
+  peer0.org1.xiaomi.com:
+  peer1.org1.xiaomi.com:
+
+networks:
+  ydqy:
+
+services:
+
+  orderer1.cpu.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer1.cpu.com
+    container_name: orderer1.cpu.com
+    networks:
+      - ydqy
+  orderer2.cpu.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer2.cpu.com
+    container_name: orderer2.cpu.com
+    networks:
+      - ydqy
+  orderer3.cpu.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer3.cpu.com
+    container_name: orderer3.cpu.com
+    networks:
+      - ydqy
+  orderer4.cpu.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer4.cpu.com
+    container_name: orderer4.cpu.com
+    networks:
+      - ydqy
+  orderer5.cpu.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer5.cpu.com
+    container_name: orderer5.cpu.com
+    networks:
+      - ydqy
+
+  peer0.org1.huawei.com:
+    container_name: peer0.org1.huawei.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer0.org1.huawei.com
+    networks:
+      - ydqy
+
+  peer1.org1.huawei.com:
+    container_name: peer1.org1.huawei.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer1.org1.huawei.com
+    networks:
+      - ydqy
+
+  peer0.org1.xiaomi.com:
+    container_name: peer0.org1.xiaomi.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer0.org1.xiaomi.com
+    networks:
+      - ydqy
+
+  peer1.org1.xiaomi.com:
+    container_name: peer1.org1.xiaomi.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer1.org1.xiaomi.com
+    networks:
+      - ydqy
+
+  cli:
+    container_name: cli
+    image: hyperledger/fabric-tools:1.4.3
+    tty: true
+    stdin_open: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      #- FABRIC_LOGGING_SPEC=DEBUG
+      - FABRIC_LOGGING_SPEC=INFO
+      - CORE_PEER_ID=cli
+      - CORE_PEER_ADDRESS=peer0.org1.huawei.com:7051
+      - CORE_PEER_LOCALMSPID=Org1MSP
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.huawei.com/peers/peer0.org1.huawei.com/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.huawei.com/peers/peer0.org1.huawei.com/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.huawei.com/peers/peer0.org1.huawei.com/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.huawei.com/users/Admin@org1.huawei.com/msp
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: /bin/bash
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./../chaincode/:/opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode
+        - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+        - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
+        - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
+    depends_on:
+      - orderer1.cpu.com
+      - orderer2.cpu.com
+      - orderer3.cpu.com
+      - orderer4.cpu.com
+      - orderer5.cpu.com
+      - peer0.org1.huawei.com
+      - peer1.org1.huawei.com
+      - peer0.org1.xiaomi.com
+      - peer1.org1.xiaomi.com
+    networks:
+      - ydqy
