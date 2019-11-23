@@ -12,28 +12,41 @@ CHANNEL_NAME="mychannelbyskt"
 
 ### 通道.tx
 CHANNEL_NAMETX="mychannel"
+
 ### 生成通道配置文件
 #CHANNEL_NAMETX =>configtxgen -profile TwoOrgsChannelByskt -outputCreateChannelTx ./channel-artifacts/mychannel.tx -channelID mychannelbyskt
 
 ### 睡眠时间
 SLEEP_SECOND=10
 
-
+### 容器名称后缀 com
 DOMAIN_NAME="com"
 
+### ORDERER 排序节点
 ORDERER_ADDRESS="orderer.cpu.com:7050"
+
+### 组织名称
 ORG_NAME=("org1" "org2")
+
+### 链码版本号
 CC_VERSION="1.0"
+
+### TLS PATH
 TLS_PATH="/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/"
+
+### ORDERER TLS PAH
 ORDERER_TLS_PATH="/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/"
+
+### ORDERER CAFILE
 ORDERER_CAFILE="/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/cpu.com/orderers/orderer.cpu.com/tls/ca.crt"
 
-
-### org1
+###  ORG1  HUAWEI_TLSROOTCERTFILE
 HUAWEI_TLSROOTCERTFILE="/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.huawei.com/peers/peer0.org1.huawei.com/tls/ca.crt"
 
-### org2
+###  ORG2  XIAOMI_TLSROOTCERTFILE
 XIAOMI_TLSROOTCERTFILE="/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.xiaomi.com/peers/peer0.org2.xiaomi.com/tls/ca.crt"
+
+
 ### 开始
 echo
 echo " ____    _____      _      ____    _____ "

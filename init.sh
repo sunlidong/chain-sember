@@ -1,12 +1,11 @@
-## 清空证书文件以及 配置文件
+#!/usr/bin/env bash
 
+### 清空证书文件以及 配置文件
 rm -rf crypto-config/
-
 rm -rf channel-artifacts/*
 
 ### 生成证书文件
 cryptogen generate --config=./crypto-config.yaml
-
 
 ### 生成创世块文件
 configtxgen -profile TwoOrgsOrdererGenesis -outputBlock ./channel-artifacts/genesis.block
@@ -19,5 +18,5 @@ configtxgen -profile TwoOrgsChannelByskt -outputCreateChannelTx ./channel-artifa
 configtxgen -profile TwoOrgsChannelByskt -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID mychannelbyskt -asOrg Org1MSP
 configtxgen -profile TwoOrgsChannelByskt -outputAnchorPeersUpdate ./channel-artifacts/Org2MSPanchors.tx -channelID mychannelbyskt -asOrg Org2MSP
 
-echo "suf fing"
+echo "create cert is successful"
 
