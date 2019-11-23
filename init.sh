@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 ### 清空证书文件以及 配置文件
-rm -rf crypto-config/
-rm -rf channel-artifacts/*
-
+#rm -rf crypto-config/
+#rm -rf channel-artifacts/*
+SLEEP_SECOND=10
 ### 生成证书文件
 cryptogen generate --config=./crypto-config.yaml
-
+sleep $SLEEP_SECOND
 ### 生成创世块文件
 configtxgen -profile TwoOrgsOrdererGenesis -outputBlock ./channel-artifacts/genesis.block
 
