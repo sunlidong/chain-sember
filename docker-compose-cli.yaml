@@ -13,8 +13,8 @@ volumes:
   orderer5.cpu.com:
   peer0.org1.huawei.com:
   peer1.org1.huawei.com:
-  peer0.org1.xiaomi.com:
-  peer1.org1.xiaomi.com:
+  peer0.org2.xiaomi.com:
+  peer1.org2.xiaomi.com:
 
 networks:
   ydqy:
