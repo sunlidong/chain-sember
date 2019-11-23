@@ -7,10 +7,6 @@ version: '2'
 
 volumes:
   orderer1.cpu.com:
-  orderer2.cpu.com:
-  orderer3.cpu.com:
-  orderer4.cpu.com:
-  orderer5.cpu.com:
   peer0.org1.huawei.com:
   peer1.org1.huawei.com:
   peer0.org2.xiaomi.com:
@@ -26,34 +22,6 @@ services:
       file:   base/docker-compose-base.yaml
       service: orderer1.cpu.com
     container_name: orderer1.cpu.com
-    networks:
-      - ydqy
-  orderer2.cpu.com:
-    extends:
-      file:   base/docker-compose-base.yaml
-      service: orderer2.cpu.com
-    container_name: orderer2.cpu.com
-    networks:
-      - ydqy
-  orderer3.cpu.com:
-    extends:
-      file:   base/docker-compose-base.yaml
-      service: orderer3.cpu.com
-    container_name: orderer3.cpu.com
-    networks:
-      - ydqy
-  orderer4.cpu.com:
-    extends:
-      file:   base/docker-compose-base.yaml
-      service: orderer4.cpu.com
-    container_name: orderer4.cpu.com
-    networks:
-      - ydqy
-  orderer5.cpu.com:
-    extends:
-      file:   base/docker-compose-base.yaml
-      service: orderer5.cpu.com
-    container_name: orderer5.cpu.com
     networks:
       - ydqy
 
