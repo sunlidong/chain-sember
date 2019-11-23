@@ -1,2 +1,2 @@
-./channel-artifacts
-./crypto-config
+./channel-artifacts/*
+./crypto-config/*
