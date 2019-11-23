@@ -19,7 +19,7 @@ services:
 
   orderer.cpu.com:
     extends:
-      file:   base/docker-compose-base.yaml
+      file:  base/docker-compose-base.yaml
       service: orderer.cpu.com
     container_name: orderer.cpu.com
     networks:
