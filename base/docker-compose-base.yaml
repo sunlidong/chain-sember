@@ -8,28 +8,28 @@ version: '2'
 services:
 
   orderer1.cpu.com:
-    container_name: orderer.cpu.com
+    container_name: orderer1.cpu.com
     extends:
       file: peer-base.yaml
       service: orderer-base
     volumes:
         - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer.cpu.com/msp:/var/hyperledger/orderer/msp
-        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer.cpu.com/tls/:/var/hyperledger/orderer/tls
-        - orderer.cpu.com:/var/hyperledger/production/orderer
+        - ../crypto-config/ordererOrganizations/cpu.com/orderers/orderer1.cpu.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/cpu.com/orderers/orderer1.cpu.com/tls/:/var/hyperledger/orderer/tls
+        - orderer1.cpu.com:/var/hyperledger/production/orderer
     ports:
       - 7050:7050
 
   orderer2.cpu.com:
-    container_name: orderer.cpu.com
+    container_name: orderer2.cpu.com
     extends:
       file: peer-base.yaml
       service: orderer-base
     volumes:
         - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer.cpu.com/msp:/var/hyperledger/orderer/msp
-        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer.cpu.com/tls/:/var/hyperledger/orderer/tls
-        - orderer.cpu.com:/var/hyperledger/production/orderer
+        - ../crypto-config/ordererOrganizations/cpu.com/orderers/orderer2.cpu.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/cpu.com/orderers/orderer2.cpu.com/tls/:/var/hyperledger/orderer/tls
+        - orderer2.cpu.com:/var/hyperledger/production/orderer
     ports:
       - 7250:7050
       
@@ -40,35 +40,35 @@ services:
       service: orderer-base
     volumes:
         - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer.cpu.com/msp:/var/hyperledger/orderer/msp
-        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer.cpu.com/tls/:/var/hyperledger/orderer/tls
-        - orderer.cpu.com:/var/hyperledger/production/orderer
+        - ../crypto-config/ordererOrganizations/cpu.com/orderers/orderer3.cpu.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/cpu.com/orderers/orderer3.cpu.com/tls/:/var/hyperledger/orderer/tls
+        - orderer3.cpu.com:/var/hyperledger/production/orderer
     ports:
       - 7350:7050
     
   orderer4.cpu.com:
-    container_name: orderer.cpu.com
+    container_name: orderer4.cpu.com
     extends:
       file: peer-base.yaml
       service: orderer-base
     volumes:
         - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer.cpu.com/msp:/var/hyperledger/orderer/msp
-        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer.cpu.com/tls/:/var/hyperledger/orderer/tls
-        - orderer.cpu.com:/var/hyperledger/production/orderer
+        - ../crypto-config/ordererOrganizations/cpu.com/orderers/orderer4.cpu.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/cpu.com/orderers/orderer4.cpu.com/tls/:/var/hyperledger/orderer/tls
+        - orderer4.cpu.com:/var/hyperledger/production/orderer
     ports:
       - 7450:7050
       
   orderer5.cpu.com:
-    container_name: orderer.cpu.com
+    container_name: orderer5.cpu.com
     extends:
       file: peer-base.yaml
       service: orderer-base
     volumes:
         - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer.cpu.com/msp:/var/hyperledger/orderer/msp
-        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer.cpu.com/tls/:/var/hyperledger/orderer/tls
-        - orderer.cpu.com:/var/hyperledger/production/orderer
+        - ../crypto-config/ordererOrganizations/cpu.com/orderer5/orderer.cpu.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/cpu.com/orderer5/orderer.cpu.com/tls/:/var/hyperledger/orderer/tls
+        - orderer5.cpu.com:/var/hyperledger/production/orderer
     ports:
       - 7550:7050
 
