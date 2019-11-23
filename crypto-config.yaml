@@ -7,7 +7,7 @@ OrdererOrgs:
   - Name: Orderer
     Domain: cpu.com
     Specs:
-      - Hostname: orderer1
+      - Hostname: orderer
 
 PeerOrgs:
   - Name: Org1
