@@ -4,7 +4,7 @@
 
 ### 项目介绍
 
-#### 1.  结构介绍
+#### 1.  目录结构介绍
 
 ├── base ********* docker继承的yaml文件
 
@@ -28,3 +28,42 @@
 
 └── scripts ********* 脚本目录(目前为空，暂时没用到)
 
+
+#### 2.  重要参数信息
+
+##### 网络结构： 2个组织 ， 一个组织各有2个节点
+##### 组织名称 ： huawei xiaomi
+##### 通道名称：mychannelbyskt
+##### 链码名称：AssetToChain_realty
+##### 链码版本：1.0
+
+#### 3. 容器名称信息
+
+###### cli
+###### orderer.cpu.com
+###### peer0.org1.huawei.com
+###### peer1.org1.huawei.com
+###### peer0.org2.xiaomi.com
+###### peer1.org2.xiaomi.com
+ 
+ 
+
+#### 4. 启动顺序 
+
+##### 启动前提
+1. 执行过clear.sh 确保环境干净
+2. 删除  channel-artifacts 目录下的配置文件
+3. 删除  crypto-config 目录下的证书
+4. 所有执行操作在sudo模式下 
+
+##### 启动
+
+1.  执行 init.sh,生成证书文件以及配置文件 ： ./init.sh
+2.  执行 build.sh 初始化网络 ：./build.sh
+3.  查看网络 ：docker ps -a
+
+##### 清空网络
+
+1. 执行清空网络脚本 ：./clear.sh(以下2步骤可以写到clear.sh脚本中)
+2. 删除  channel-artifacts 目录下的配置文件
+3. 删除  crypto-config 目录下的证书

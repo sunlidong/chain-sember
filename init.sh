@@ -18,5 +18,10 @@ configtxgen -profile TwoOrgsChannelByskt -outputCreateChannelTx ./channel-artifa
 configtxgen -profile TwoOrgsChannelByskt -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID mychannelbyskt -asOrg Org1MSP
 configtxgen -profile TwoOrgsChannelByskt -outputAnchorPeersUpdate ./channel-artifacts/Org2MSPanchors.tx -channelID mychannelbyskt -asOrg Org2MSP
 
+
+### 启动网络
+docker-compose -f docker-compose-cli.yaml -p demo up -d
+
+
 echo "create cert is successful"
 
