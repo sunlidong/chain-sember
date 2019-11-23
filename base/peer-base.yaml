@@ -9,6 +9,7 @@ services:
   peer-base:
     image: hyperledger/fabric-peer:1.4.3
     environment:
+      - GODEBUG=netdns=go
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       # the following setting starts chaincode containers on the same
       # bridge network as the peers
@@ -31,6 +32,7 @@ services:
   orderer-base:
     image: hyperledger/fabric-orderer:1.4.3
     environment:
+      - GODEBUG=netdns=go
       - FABRIC_LOGGING_SPEC=INFO
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
